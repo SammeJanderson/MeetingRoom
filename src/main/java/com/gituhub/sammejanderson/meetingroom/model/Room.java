@@ -34,8 +34,6 @@ public class Room {
     private String endHour;
 
 
-
-
 }
 
 
