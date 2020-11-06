@@ -5,35 +5,86 @@ import lombok.*;
 import javax.persistence.*;
 
 
-//lombok
-@Getter
-@ToString // em caso de erros futuros, olhar parte 3
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-//JPA
+
 @Entity
 @Table(name = "meetingroom")
 public class Room {
+    private long id;
+    private String date;
+    private String name;
+    private String startHour;
+    private String endHour;
+
+
+    public Room() {
+    }
+
+    public Room(long id, String date, String name, String startHour, String endHour) {
+        this.id = id;
+        this.date = date;
+        this.name = name;
+        this.startHour = startHour;
+        this.endHour = endHour;
+    }
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    public long getId() {
+        return id;
+    }
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    public void setId(long id) {
+        this.id = id;
+    }
 
     @Column(name = "date", nullable = false)
-    private String date;
+    public String getDate() {
+        return date;
+    }
 
-    @Column(name = "startHour", nullable = false)
-    private String startHour;
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     @Column(name = "name", nullable = false)
-    private String endHour;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "startHour", nullable = false)
+    public String getStartHour() {
+        return startHour;
+    }
 
 
+    public void setStartHour(String startHour) {
+        this.startHour = startHour;
+    }
+
+    @Column(name = "endHour", nullable = false)
+    public String getEndHour() {
+        return endHour;
+    }
+
+    public void setEndHour(String endHour) {
+        this.endHour = endHour;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", name='" + name + '\'' +
+                ", startHour='" + startHour + '\'' +
+                ", endHour='" + endHour + '\'' +
+                '}';
+    }
 }
 
 
